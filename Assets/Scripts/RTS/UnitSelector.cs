@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class UnitSelector : MonoBehaviour
 {
+    [SerializeField]
     List<ISelectable> selectedUnits = new List<ISelectable>();
 
     public void Select(ISelectable selectable)

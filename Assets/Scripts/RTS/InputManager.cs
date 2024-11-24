@@ -49,6 +49,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
+            
             HandleLeftClick();
         }
         if (Input.GetMouseButtonDown(1)) 
@@ -164,7 +165,7 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        commandUI.DisplayCommands(unitSelector.GetSelectedUnits());
+        // commandUI.DisplayCommands(unitSelector.GetSelectedUnits());
 
     }
 
