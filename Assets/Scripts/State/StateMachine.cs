@@ -14,7 +14,7 @@ public class StateMachine
     public ProductionState productionState;
 
     public event Action<IState> stateChanged;   
-    // Action<IState> : ÆÄ¶ó¹ÌÅÍ·Î IState Å¸ÀÔÀ» °Ç³×ÁÖ´Â void ÇÔ¼ö¶ó´Â ¶æ
+    // Action<IState> : íŒŒë¼ë¯¸í„°ë¡œ IState íƒ€ì…ì„ ê±´ë„¤ì£¼ëŠ” void í•¨ìˆ˜ë¼ëŠ” ëœ»
 
     public StateMachine(StateController player)
     {

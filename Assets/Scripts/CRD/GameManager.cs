@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         HandleMovement();
+     
     }
 
     void HandleMovement()
@@ -49,4 +52,6 @@ public class GameManager : MonoBehaviour
         cam.transform.position = newPosition;
         
     }
+    // 포인터가 UI에 있을 때만 true 반환
+
 }

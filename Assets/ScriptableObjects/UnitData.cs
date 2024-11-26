@@ -4,10 +4,13 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     public string unitName;
-    public GameObject prefab;
+    public Sprite attackicon;
     public float health;
+    public float magicPoint;
     public float moveSpeed;
     public float attackRange;
     public float attackDamage;
     public float productionTime;
+    
+    public SkillData[] skills;
 }

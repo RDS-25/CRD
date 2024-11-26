@@ -44,7 +44,7 @@ public class Building : MonoBehaviour, ISelectable
         }
         else
         {
-            // ��...
+            // ��...
         }
     }
 
@@ -79,15 +79,16 @@ public class Building : MonoBehaviour, ISelectable
 
         yield return new WaitForSeconds(unitData.productionTime);
 
-        SpawnUnit(unitData);
+        // SpawnUnit(unitData);
 
         stateMachine.TransitionTo(stateMachine.idleState);
 
         activeProductionCoroutine = null;
     }
 
-    void SpawnUnit(UnitData unitData)
-    {
-        Instantiate(unitData.prefab, spawnPoint.position, Quaternion.identity);
-    }
+    // void SpawnUnit(UnitData unitData)
+    // {
+    //     //2024.11.26 잠시 제거
+    //     // Instantiate(unitData.prefab, spawnPoint.position, Quaternion.identity);
+    // }
 }

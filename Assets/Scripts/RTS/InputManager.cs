@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -20,17 +21,14 @@ public class InputManager : MonoBehaviour
     {
         commandUI = FindFirstObjectByType<CommandUI>();
         unitSelector = FindFirstObjectByType<UnitSelector>();
-        // Find�� ���� ����� �ϴ� ����?
-        // 1. Find�� ���� ���� �����ϴ� ��� ������Ʈ�� �˻���
-        // �� ������ ����
-        // 2. Find�� ���� ������Ʈ�� "�̸�"�� ��Ʈ�� ���ؼ� ã��
-        // �� ������ - ��ҹ��� ��Ÿ�� ����??
-        // �׷��ϱ� �������� ������.
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             commandMode = CommandMode.Attack;
@@ -49,13 +47,23 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            
+            if (IsPointerOverUI())
+            {
+                return;
+            }
             HandleLeftClick();
         }
         if (Input.GetMouseButtonDown(1)) 
         {
+            
+            if (IsPointerOverUI())
+            {
+                return;
+            }
             HandleRightClick();
         }
+        
+        commandUI.DisplayCommands(unitSelector.GetSelectedUnits());
     }
 
     void CancelCommandMode()
@@ -69,7 +77,7 @@ public class InputManager : MonoBehaviour
             unitSelector.DeselectAll();
         }
 
-        commandUI.DisplayCommands(unitSelector.GetSelectedUnits());
+        // commandUI.DisplayCommands(unitSelector.GetSelectedUnits());
 
     }
 
@@ -201,13 +209,16 @@ public class InputManager : MonoBehaviour
     Vector3 GetMouseClickPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-// ���߿� ����� ��ġ�� �ʹٸ�, �׸��� ���� �ɸ��� �ɸ��ٸ�
-// ���ٴ� ���̾ �и��ؼ� �� ���̾�� ���� ��� �˴ϴ�
+        
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             return hit.point;
         }
         return Vector3.zero;
+    }
+    
+    bool IsPointerOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }

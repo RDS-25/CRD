@@ -3,19 +3,25 @@ using UnityEngine.AI;
 
 public class Unit : MonoBehaviour, ISelectable
 {
-    [SerializeField] UnitData unitData;
+    //public으로 쓰는게 맞는가 ? ?
+    public UnitData unitData;
     [SerializeField] GameObject selectIndicator;
 
     bool isSelected = false;
 
     ICommand currentCommand;
     public float attackRange;
-
+    public float hp;
+    public float mp;
+  
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GetComponent<NavMeshAgent>().speed = unitData.moveSpeed;
         attackRange = unitData.attackRange;
+        hp = unitData.health;
+        mp = unitData.magicPoint;
     }
 
     public bool IsSelected()
@@ -50,7 +56,7 @@ public class Unit : MonoBehaviour, ISelectable
         }
         else
         {
-            // 안되는거겠죠...
+            //행동 안될때 
         }
 
     }
