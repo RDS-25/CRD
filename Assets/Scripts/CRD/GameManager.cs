@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,14 +10,20 @@ public class GameManager : MonoBehaviour
     
     public Vector2 xLimits = new Vector3(-10f, 10f, 0f); // X축 이동 제한
     public Vector2 zLimits = new Vector3(-75f, -10f, 0f); // X축 이동 제한
- 
+
+    [SerializeField] private float swpantime = 1f;
     
+    
+
+
+   
+
     // Update is called once per frame
     void Update()
     {
-      
+        
         HandleMovement();
-     
+        
     }
 
     void HandleMovement()
