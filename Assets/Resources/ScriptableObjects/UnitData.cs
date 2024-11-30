@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitData", menuName = "Scriptable Objects/UnitData")]
 public class UnitData : ScriptableObject
 {
+    public string ID;
     public string unitName;
     public Sprite attackicon;
     public float health;
@@ -13,4 +14,5 @@ public class UnitData : ScriptableObject
     public float productionTime;
     
     public SkillData[] skills;
+    public CraftingRecipe[] craftingRecipes;
 }

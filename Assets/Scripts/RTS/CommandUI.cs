@@ -18,9 +18,10 @@ public class CommandUI : MonoBehaviour
     public UnitData data;
     public void DisplayCommands(List<ISelectable> selectables)
     {
-        
+        //클릭한 캐릭터가 없을때 
         if (selectables.Count == 0 || !(selectables[0] is Unit unit))
         {
+            
             // 모든 UI 요소 초기화
             nameText.text = "";
             attackImage.sprite = null;
@@ -34,20 +35,31 @@ public class CommandUI : MonoBehaviour
             }
             return;
         }
-        data = unit.unitData;
         
+        data = unit.unitData;
+        //클릭한 캐릭터가 하나일때
         if (selectables.Count == 1)
         {
-            
+            //초기화
+            foreach (Image skillIcon in skillIcons)
+            {
+                skillIcon.sprite = null;
+            }
+
             attackImage.sprite = data.attackicon;
             nameText.text = data.name;
             attackText.text = data.attackDamage.ToString();
             hpText.text = unit.hp.ToString();
             mpText.text = unit.mp.ToString();
+            //이미지에 스킬먼저
             for (int i = 0; i < unit.unitData.skills.Length; i++)
             {
-                skillIcons[i].sprite = data.skills[i].skillIcon;
-                
+                skillIcons[i].sprite = data.skills[i].skillIcon; 
+            }
+            //나머지 이미지에 조합법
+            for (int i = 0; i < data.craftingRecipes.Length; i++)
+            {
+                skillIcons[data.skills.Length+i].sprite = data.craftingRecipes[i].createSprite;
             }
         }
     }
@@ -67,8 +79,17 @@ public class CommandUI : MonoBehaviour
                 {
                     skillDescriptions.gameObject.SetActive(true);
                     skillDescriptions.gameObject.transform.position = pointerData.position;
-                    skillDescriptions.text = data.skills[i].skillDescription;
-                    break;
+                    if (i < data.skills.Length)
+                    {
+                        skillDescriptions.text = data.skills[i].skillDescription;
+                    }
+                    else
+                    {
+                        skillDescriptions.text = data.craftingRecipes[i-data.skills.Length].description;
+                        // 기존 UI 요소에 Button 컴포넌트 추가
+                        AddButtonComponentToIcon(skillIcons[i], i - data.skills.Length);
+                    }
+
                 }
             }
         }
@@ -79,6 +100,21 @@ public class CommandUI : MonoBehaviour
         skillDescriptions.gameObject.SetActive(false);
         skillDescriptions.text = "";
                 
+    }
+    private void AddButtonComponentToIcon(Image icon, int recipeIndex)
+    {
+        // 아이콘에 Button 컴포넌트 추가
+        Button button = icon.gameObject.GetComponent<Button>();
+        
+        // 버튼 클릭 이벤트 추가
+        button.onClick.RemoveAllListeners(); // 이전 리스너 제거
+        button.onClick.AddListener(() => OnRecipeButtonClick(recipeIndex));
+    }
+
+    
+    private void OnRecipeButtonClick(int index)
+    {
+        data.craftingRecipes[index].CombineItem();
     }
 
    

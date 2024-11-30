@@ -89,8 +89,6 @@ public class InputManager : MonoBehaviour
         {
             if (selectable is Building building )
             {
-                // ���� �����ϴ� ������ �ϳ����̹Ƿ� �ϴ� �̷����Ѵ�.
-                // ���� ���� ������ ��������� GetComponents�� �����ͼ� ���Ͽ� Ŀ�ǵ带 ��������
                 ICommand produceCommand = building.GetComponent<ProduceUnitCommand>();
                 if (produceCommand!= null)
                 {

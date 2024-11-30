@@ -10,7 +10,6 @@ public class Timer : MonoBehaviour
     public int roundCount;
     float elapsedTime; //시간 재기
     [SerializeField] float reamingTime; //남은 시간
-    [SerializeField] ObjectPool objectPool;
     private float cooldownTime = 1.0f; // 1초 간격
     private float cooldownTimer;
 
@@ -19,6 +18,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         cooldownTimer = cooldownTime;
+        roundCountText.text = roundCount.ToString()+"Round";
     }
 
 
@@ -30,7 +30,8 @@ public class Timer : MonoBehaviour
         if (cooldownTimer <= 0)
         {
             // 매초 objectPool에서 객체 가져오기
-            objectPool.GetObject(roundCount);
+            // objectPool.GetObject(roundCount);
+            ObjectPool.Instance.GetObject(roundCount);
 
             // 타이머 재설정
             cooldownTimer = cooldownTime;

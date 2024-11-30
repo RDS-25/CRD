@@ -1,24 +1,32 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public EnemyData enemyPrefabs; // 이 ScriptableObject로 적 프리팹을 관리합니다.
-    [SerializeField]private List<GameObject> pool = new List<GameObject>();
+    public static ObjectPool Instance { get; private set; }
+
+    public EnemyData enemyPrefabs;
+    [SerializeField] private List<GameObject> pool = new List<GameObject>();
+    [SerializeField] private List<GameObject> poolCharGameObjects = new List<GameObject>();
     private Dictionary<int, GameObject> stagePrefabs;
     [SerializeField] private Transform swpanPos;
+    [Header("Initialized spawned enemies")]
     [SerializeField] private Transform swpanGroups;
 
     private void Awake()
     {
-        InitializeDictionary();
-        InitializePool();
-     
+        // 싱글턴
+        if (Instance == null)
+        {
+            Instance = this;
+            InitializeDictionary();
+            InitializePool();
+        }
+        else
+        {
+            Destroy(gameObject); // 중복제거
+        }
     }
-
-   
 
     private void InitializeDictionary()
     {
@@ -26,7 +34,7 @@ public class ObjectPool : MonoBehaviour
 
         for (int i = 0; i < enemyPrefabs.enemyProperties.Count; i++)
         {
-            stagePrefabs.Add(i + 1, enemyPrefabs.enemyProperties[i].prefab); // 각 스테이지에 대한 프리팹 매핑
+            stagePrefabs.Add(i + 1, enemyPrefabs.enemyProperties[i].prefab); 
         }
     }
 
@@ -45,6 +53,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    //적 나오게하기
     public GameObject GetObject(int stageNumber)
     {
         GameObject prefab = stagePrefabs[stageNumber];
@@ -64,6 +73,7 @@ public class ObjectPool : MonoBehaviour
         pool.Add(newObj);
         return newObj;
     }
+    
 
     public void ReturnObject(GameObject obj)
     {
