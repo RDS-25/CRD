@@ -46,8 +46,8 @@ public class CraftingRecipe : ScriptableObject
             }
 
             // 결과 아이템 생성
-            Instantiate(resultItem, Vector3.zero, Quaternion.identity);
-
+            var a = ObjectPool.Instance.GetObjectUnit(resultItem);
+            a.transform.position = Vector3.zero;
         }
         else
         {
@@ -74,7 +74,7 @@ public class CraftingRecipe : ScriptableObject
 
             if (obj.GetComponent<Unit>()?.unitData.ID == item.ID)
             {
-                Destroy(obj.gameObject);
+                ObjectPool.Instance.ReturnObject(obj.gameObject);
                 removed++;
             }
         }

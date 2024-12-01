@@ -77,7 +77,7 @@ public class Building : MonoBehaviour, ISelectable
         StateMachine stateMachine = GetComponent<StateController>().stateMachine;
         stateMachine.TransitionTo(stateMachine.productionState);
 
-        yield return new WaitForSeconds(unitData.productionTime);
+        yield return new WaitForSeconds(1f);
 
         // SpawnUnit(unitData);
 

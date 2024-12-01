@@ -7,11 +7,12 @@ public class ObjectPool : MonoBehaviour
 
     public EnemyData enemyPrefabs;
     [SerializeField] private List<GameObject> pool = new List<GameObject>();
-    [SerializeField] private List<GameObject> poolCharGameObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> poolUnit = new List<GameObject>();
     private Dictionary<int, GameObject> stagePrefabs;
     [SerializeField] private Transform swpanPos;
     [Header("Initialized spawned enemies")]
     [SerializeField] private Transform swpanGroups;
+    [SerializeField] private Transform UnitGroup;
 
     private void Awake()
     {
@@ -40,9 +41,22 @@ public class ObjectPool : MonoBehaviour
 
     private void InitializePool()
     {
+        var Unitprefab = Resources.LoadAll<GameObject>("Prefabs");
+        //유닛 오브젝트 
+        foreach (var Unit in Unitprefab)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject obj = Instantiate(Unit);
+                obj.transform.SetParent(UnitGroup);
+                obj.SetActive(false);
+                poolUnit.Add(obj);
+            }
+        }
+        //적 오브젝트
         foreach (var property in enemyPrefabs.enemyProperties)
         {
-            for (int i = 0; i < 35; i++)
+            for (int i = 0; i < 20; i++)
             {
                 GameObject obj = Instantiate(property.prefab);
                 obj.transform.position = swpanPos.position;
@@ -73,6 +87,30 @@ public class ObjectPool : MonoBehaviour
         pool.Add(newObj);
         return newObj;
     }
+    
+    //아군
+    public GameObject GetObjectUnit(GameObject prefab)
+    {
+        // unitPool 리스트에서 게임 오브젝트가 있는지 확인
+        foreach (var obj in poolUnit)
+        {
+            if (!obj.activeInHierarchy && obj.name.Contains(prefab.name))
+            {
+                // 오브젝트를 활성화하고 위치를 설정한 뒤 반환
+                obj.transform.position = swpanPos.position;
+                obj.SetActive(true);
+                return obj;
+            }
+        }
+        
+
+        GameObject newObj = Instantiate(prefab);
+        newObj.transform.position = swpanPos.position;
+        poolUnit.Add(newObj);
+        newObj.transform.SetParent(UnitGroup);
+        return newObj;
+    }
+  
     
 
     public void ReturnObject(GameObject obj)

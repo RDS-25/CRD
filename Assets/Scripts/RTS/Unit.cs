@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Unit : MonoBehaviour, ISelectable
 {
-    //public으로 쓰는게 맞는가 ? ?
+ 
     public UnitData unitData;
     [SerializeField] GameObject selectIndicator;
 
@@ -15,7 +15,7 @@ public class Unit : MonoBehaviour, ISelectable
     public float mp;
   
    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
     void Start()
     {
         GetComponent<NavMeshAgent>().speed = unitData.moveSpeed;

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e78fee69d3ef747a944df0f8274be4, type: 3}
-  m_Name: Recipe
+  m_Name: CombineTerroristDefault
   m_EditorClassIdentifier: 
   reqItems:
-  - item: {fileID: 11400000, guid: 93d99f5cc55d9f3478288f3538ad3cc6, type: 2}
   - item: {fileID: 11400000, guid: 4f224d17789f07642814d65e78b1c1dc, type: 2}
-  resultItem: {fileID: 6793891494533192915, guid: abcba60bccb2f4b469506a494f4961d8, type: 3}
+  - item: {fileID: 11400000, guid: 162203a226edf9e419b8186b6cd1eaf3, type: 2}
+  resultItem: {fileID: 1664475313433241007, guid: 8b549ce71ddfbe2439698f8de5946840, type: 3}
   createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
-  description: bar + test
+  description: BasicFemaleDefault + CowboyDefault

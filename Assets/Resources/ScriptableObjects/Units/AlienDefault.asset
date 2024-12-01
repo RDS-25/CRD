@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65d7269bcf38b24abbb291c1d843635, type: 3}
+  m_Name: AlienDefault
+  m_EditorClassIdentifier: 
+  ID: 0
+  unitName: 0
+  attackicon: {fileID: 0}
+  health: 0
+  magicPoint: 0
+  moveSpeed: 0
+  attackRange: 0
+  attackDamage: 0
+  skills:
+  - {fileID: 11400000, guid: da64b553864e6a94cae8b4cc150195b2, type: 2}
+  - {fileID: 11400000, guid: 4ea22e1c84e700141a2aeb755bd71feb, type: 2}
+  - {fileID: 11400000, guid: 3b0096837772b8646b5b142aecf33a67, type: 2}
+  - {fileID: 11400000, guid: d3959486ad6a70b47b1efbf22368b195, type: 2}
+  - {fileID: 11400000, guid: 6d952827baf39f642983188a74508274, type: 2}
+  - {fileID: 11400000, guid: a0e892945516023408d0b4004c7080fa, type: 2}
+  - {fileID: 11400000, guid: 6330f69d31c65784eabd0635c0a786ec, type: 2}
+  craftingRecipes:
+  - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}
