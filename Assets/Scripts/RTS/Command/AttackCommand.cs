@@ -9,6 +9,7 @@ public class AttackCommand : MonoBehaviour, ICommand
 
     public void SetTarget(ISelectable target)
     {
+     
         this.target = target;
     }
 
@@ -27,6 +28,7 @@ public class AttackCommand : MonoBehaviour, ICommand
 
     public void Execute(ISelectable executor)
     {
+        
         if (executor is Unit unit && target!=null) 
         {
             unit.StartCoroutine(AttackRoutine(unit));
@@ -78,7 +80,7 @@ public class AttackCommand : MonoBehaviour, ICommand
     void PerformAttack(Unit unit, ISelectable target)
     {
         unit.transform.LookAt((target as MonoBehaviour).transform.position);
-        Debug.Log(unit.name + "�� " + (target as MonoBehaviour).name + " ���� ��!");
+        Debug.Log(unit.name + "이" + (target as MonoBehaviour).name + " 공격중");
         
     }
 }

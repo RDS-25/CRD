@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class InitData : MonoBehaviour
 {
-    private const string URL = "https://docs.google.com/spreadsheets/d/1YG_fi8dFtoPyjmRXZShf48eEhHDvR8dvHUxUl-H7ELE/export?format=tsv&range=A2:H";
+    private const string URL = "https://docs.google.com/spreadsheets/d/1YG_fi8dFtoPyjmRXZShf48eEhHDvR8dvHUxUl-H7ELE/export?format=tsv&range=A2:I";
     private const string UnitPath = "ScriptableObjects/Units";
     
     IEnumerator Start()
@@ -45,6 +45,7 @@ public class InitData : MonoBehaviour
                     assets[i].moveSpeed = float.Parse(column[5]);
                     assets[i].attackRange = float.Parse(column[6]);
                     assets[i].attackDamage = float.Parse(column[7]);
+                    assets[i].attackSpeed = float.Parse(column[8]);
                 }
             }
         }

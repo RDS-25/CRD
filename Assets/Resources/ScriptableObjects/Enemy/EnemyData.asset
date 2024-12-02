@@ -16,8 +16,8 @@ MonoBehaviour:
   - prefab: {fileID: 463978861189635620, guid: 19615cd1f5744094aacf447d7781c41d, type: 3}
     Armor: 10
     Speed: 10
-    Maxhp: 10
+    Maxhp: 200
   - prefab: {fileID: 463978861189635620, guid: e998ec362833d7d46a4ae9c9d25445e1, type: 3}
     Armor: 20
     Speed: 20
-    Maxhp: 20
+    Maxhp: 500

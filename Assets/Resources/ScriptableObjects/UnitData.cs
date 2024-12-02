@@ -11,6 +11,7 @@ public class UnitData : ScriptableObject
     public float moveSpeed;
     public float attackRange;
     public float attackDamage;
+    public float attackSpeed;
    
     
     public SkillData[] skills;

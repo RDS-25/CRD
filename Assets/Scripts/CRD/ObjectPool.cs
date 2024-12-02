@@ -59,6 +59,10 @@ public class ObjectPool : MonoBehaviour
             for (int i = 0; i < 20; i++)
             {
                 GameObject obj = Instantiate(property.prefab);
+                var enemy = obj.GetComponent<PropertyDisplay>();
+                enemy.ammor = property.Armor;
+                enemy.speed = property.Speed;
+                enemy.maxhp = property.Maxhp;
                 obj.transform.position = swpanPos.position;
                 obj.transform.SetParent(swpanGroups);
                 obj.SetActive(false);
