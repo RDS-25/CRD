@@ -8,6 +8,7 @@ public class Follow : MonoBehaviour
     public Transform[] wayPoints;
     private NavMeshAgent agent;
     private int currentIndex = 0;
+    
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Follow : MonoBehaviour
         {
             agent.SetDestination(wayPoints[currentIndex].position);
         }
+        
     }
 
     private void Update()
@@ -38,10 +40,7 @@ public class Follow : MonoBehaviour
         {
             // GetComponentsInChildren을 사용하여 자식 오브젝트들을 Transform 배열로 가져옵니다.
             wayPoints = wayPointParent.GetComponentsInChildren<Transform>();
-
-            // 첫 번째 요소는 부모 자신이므로 제외하고 로그를 출력합니다.
-            Debug.Log("Found " + (wayPoints.Length - 1) + " waypoints.");
-
+            
             // 필요하다면 첫 번째 요소(부모 자신)를 제외하고 작업을 수행합니다.
             wayPoints = wayPoints.Skip(1).ToArray();
         }

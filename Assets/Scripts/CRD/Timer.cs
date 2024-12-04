@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
     [SerializeField] float reamingTime; //남은 시간
     private float cooldownTime = 1.0f; // 1초 간격
     private float cooldownTimer;
+    [SerializeField] private Transform wispPos;
+    public GameObject wisp;
 
 
     // Update is called once per frame
@@ -24,31 +26,44 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (roundCount >10)
+        {
+            Debug.Log("끝남");
+            return;
+        }
         // deltaTime을 사용하여 시간 경과 추적
         cooldownTimer -= Time.deltaTime;
-
-        if (cooldownTimer <= 0)
-        {
-            // 매초 objectPool에서 객체 가져오기
-            // objectPool.GetObject(roundCount);
-            ObjectPool.Instance.GetObject(roundCount);
-
-            // 타이머 재설정
-            cooldownTimer = cooldownTime;
-        }
-       
-
         if (reamingTime < 0)
         {
             roundCount += 1;
+            var a =ObjectPool.Instance.GetObjectUnit(wisp);
+            a.transform.position = wispPos.position;
             roundCountText.text = roundCount.ToString()+"Round";
-            reamingTime = 10;
+            reamingTime = 20;
             RoundCounter();
         }
         else if (reamingTime > 0)
         {
             RoundCounter();
         }
+        
+        if (roundCount > 0)
+        {
+            if (cooldownTimer <= 0)
+            {
+                // 매초 objectPool에서 객체 가져오기
+                // objectPool.GetObject(roundCount);
+                ObjectPool.Instance.GetObject(roundCount);
+
+                // 타이머 재설정
+                cooldownTimer = cooldownTime;
+            }
+            
+        }
+      
+       
+
+       
 
       
     }

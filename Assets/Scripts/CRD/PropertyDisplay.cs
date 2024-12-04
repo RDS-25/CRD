@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PropertyDisplay : MonoBehaviour ,ISelectable
 {
-    
-    bool isSelected = false;
-    ICommand currentCommand;
+    private Animator animator;
 
+    public bool isDead= false;
     public float speed;
     public float ammor;
     public float maxhp;
@@ -14,38 +15,44 @@ public class PropertyDisplay : MonoBehaviour ,ISelectable
     void Start()
     {
         currenthp = maxhp;
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("Run");
+    }
+
+    private void Update()
+    {
+        if (currenthp <= 0 && !isDead)
+        {
+            isDead = true;
+            transform.GetComponent<Follow>().enabled = false;
+            transform.GetComponent<NavMeshAgent>().enabled = false;
+            animator.SetTrigger("Dead");
+            Invoke("retunobj",0.5f);
+        }
+    }
+
+    private void retunobj()
+    {
+        ObjectPool.Instance.ReturnObject(gameObject);
     }
 
     public void Select()
     {
-        isSelected = true;
+       
     }
 
     public void Deselect()
     {
-        isSelected = false;
+        
     }
 
     public bool IsSelected()
     {
-        return isSelected;
+        return false;
     }
 
     public void ExecuteCommand(ICommand command)
     {
-        if (currentCommand != null)
-        {
-            currentCommand.Cancel();
-            StopAllCoroutines();
-        }
-        if (command.CanExecute(this))
-        {
-            currentCommand = command;
-            command.Execute(this);
-        }
-        else
-        {
-            //행동 안될때 
-        }
+        
     }
 }

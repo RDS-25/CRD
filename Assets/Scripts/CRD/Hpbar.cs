@@ -20,9 +20,15 @@ public class Hpbar : MonoBehaviour
         target=transform;
         maxHealth= transform.GetComponent<PropertyDisplay>().maxhp;  // 슬라이더의 최대 값을 최대 HP로 설정
         currentHealth = maxHealth;
+        Vector3 targetPositionWithOffset = target.position + offset;
+        // 월드 공간의 오브젝트 위치를 스크린 공간 좌표로 변환
+        Vector3 screenPos = mainCamera.WorldToScreenPoint(targetPositionWithOffset);
+        // 스크린 공간 좌표를 UI 요소의 위치로 설정
+        uiElement.position = screenPos;
     }
     void Update()
     {
+        //캐릭터 생성될때 중앙에 잠깐 보임
         currentHealth =transform.GetComponent<PropertyDisplay>().currenthp;
         if (target != null && uiElement != null)
         {

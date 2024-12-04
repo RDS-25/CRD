@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 3675303571626674489}
   m_Layer: 6
   m_Name: AlienDefault
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1984,9 +1984,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2676622385941277166}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
-  m_Controller: {fileID: 9100000, guid: 91468e12735484741a3f95709c52ccf5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9ec720713ea8d5f40880e42c1e8f6a5a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2010,11 +2010,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46cad4520aeae74ebc74453fca40ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potentialTargets: []
+  target: {fileID: 0}
   unitData: {fileID: 11400000, guid: 93d99f5cc55d9f3478288f3538ad3cc6, type: 2}
   selectIndicator: {fileID: 943574139735272171}
-  attackRange: 3
+  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
+  forcedattack: 0
+  attackRange: 10
+  attackSpeed: 0
   hp: 0
   mp: 0
+  attackdamage: 0
 --- !u!114 &2481713033841196090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2078,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!136 &7321006636045664751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2088,7 +2094,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

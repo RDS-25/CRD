@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: SkillMana
   m_EditorClassIdentifier: 
   skillName: Mana
-  skillIcon: {fileID: 21300000, guid: eef4213a69194c448a8aa33cb3e99ca4, type: 3}
-  skillDescription: DesMana
+  skillIcon: {fileID: 21300000, guid: cc746f443d014a249b67a51ee8fe6f4e, type: 3}
+  skillDescription: "\uB9C8\uB098\uC2A4\uD0AC \uC801\uC8FC\uBCC0\uC5D0 \uB9C8\uB098\uD3ED\uBC1C\uC744\uC77C\uC73C\uD0A8\uB2E4."
+  range: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  particlePrefab: {fileID: 1513788734882180063, guid: 078b81b7893afb348b6658431db3f3c4, type: 3}

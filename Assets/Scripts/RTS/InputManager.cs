@@ -116,18 +116,26 @@ public class InputManager : MonoBehaviour
 
     void HandleAttackCommand()
     {
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
         if (Physics.Raycast(ray,out RaycastHit hit))
         {
             ISelectable target = hit.collider.GetComponent<ISelectable>();
+            
+            if (hit.collider.tag == "Player")
+            {
+                CancelCommandMode();
+                return;
+            }
+            List<ISelectable> selectedUnits = unitSelector.GetSelectedUnits();
             if (target != null)
             {
-                List<ISelectable> selectedUnits = unitSelector.GetSelectedUnits();
-
                 foreach (ISelectable selectable in selectedUnits)
                 {
                     if (selectable is Unit unit) 
                     {
+                        unit.forcedattack = true;
                         AttackCommand cmd = unit.GetComponent<AttackCommand>();
                         if (cmd!=null)
                         {
@@ -140,7 +148,14 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                // ���ö�
+                foreach (ISelectable selectable in selectedUnits)
+                {
+                    if (selectable is Unit unit) 
+                    {
+                        unit.forcedattack = false;
+                    }
+                }
+                commandMode = CommandMode.None;
             }
         }
 
@@ -192,6 +207,7 @@ public class InputManager : MonoBehaviour
         {
             if (selectable is Unit unit)
             {
+                unit.forcedattack = false;
                 MoveCommand moveCommand = unit.GetComponent<MoveCommand>();
                 if (moveCommand != null)
                 {
@@ -201,7 +217,7 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        commandMode = CommandMode.None;
+        // commandMode = CommandMode.None;
     }
 
     Vector3 GetMouseClickPosition()

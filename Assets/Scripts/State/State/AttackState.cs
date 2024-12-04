@@ -12,7 +12,10 @@ public class AttackState : IState
 
     public void Enter()
     {
+        var a = player.GetComponent<Unit>().attackSpeed;
         player.GetComponent<Animator>().SetTrigger("Attack");
+        player.GetComponent<Animator>().SetFloat("AttackSpeed",a);
+        
     }
 
     public void Execute()

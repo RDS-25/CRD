@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class ObjectPool : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글턴
         if (Instance == null)
         {
             Instance = this;
@@ -38,7 +38,6 @@ public class ObjectPool : MonoBehaviour
             stagePrefabs.Add(i + 1, enemyPrefabs.enemyProperties[i].prefab); 
         }
     }
-
     private void InitializePool()
     {
         var Unitprefab = Resources.LoadAll<GameObject>("Prefabs");
@@ -101,7 +100,7 @@ public class ObjectPool : MonoBehaviour
             if (!obj.activeInHierarchy && obj.name.Contains(prefab.name))
             {
                 // 오브젝트를 활성화하고 위치를 설정한 뒤 반환
-                obj.transform.position = swpanPos.position;
+                
                 obj.SetActive(true);
                 return obj;
             }
@@ -119,6 +118,17 @@ public class ObjectPool : MonoBehaviour
 
     public void ReturnObject(GameObject obj)
     {
+        if (obj.name.Contains("Wisp"))
+        {
+            obj.SetActive(false);
+            return; 
+        }
+        var enemy = obj.GetComponent<PropertyDisplay>();
+        enemy.currenthp = enemy.maxhp;
+        enemy.isDead = false;
+        enemy.GetComponent<NavMeshAgent>().enabled = true;
+        enemy.GetComponent<NavMeshAgent>().ResetPath();
+        enemy.GetComponent<Follow>().enabled = true;
         obj.SetActive(false);
     }
 }

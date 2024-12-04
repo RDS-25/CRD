@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65d7269bcf38b24abbb291c1d843635, type: 3}
   m_Name: BearDefault
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 4
   unitName: BearDefault
   attackicon: {fileID: 21300000, guid: e36cecb3027d3e247a58330439dd865a, type: 3}
-  health: 10
-  magicPoint: 20
-  moveSpeed: 30
-  attackRange: 40
-  attackDamage: 50
+  health: 9
+  magicPoint: 9
+  moveSpeed: 5
+  attackRange: 5
+  attackDamage: 20
+  attackSpeed: 1
   skills:
-  - {fileID: 11400000, guid: da64b553864e6a94cae8b4cc150195b2, type: 2}
+  - {fileID: 11400000, guid: d86fb224ac88bab418c8d00ae0f229d2, type: 2}
   craftingRecipes:
-  - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}
+  - {fileID: 11400000, guid: 633b01c6ffc5cfa4792489ab5204b15f, type: 2}

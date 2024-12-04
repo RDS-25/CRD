@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65d7269bcf38b24abbb291c1d843635, type: 3}
   m_Name: NinjaDefault
   m_EditorClassIdentifier: 
-  ID: 
-  unitName: 
-  attackicon: {fileID: 0}
-  health: 0
-  magicPoint: 0
-  moveSpeed: 0
-  attackRange: 0
-  attackDamage: 0
+  ID: 12
+  unitName: NinjaDefault
+  attackicon: {fileID: 21300000, guid: e36cecb3027d3e247a58330439dd865a, type: 3}
+  health: 9
+  magicPoint: 9
+  moveSpeed: 5
+  attackRange: 3
+  attackDamage: 20
+  attackSpeed: 1
   skills:
-  - {fileID: 11400000, guid: da64b553864e6a94cae8b4cc150195b2, type: 2}
+  - {fileID: 11400000, guid: 8120493acd14ccd488df70813e8e5b8a, type: 2}
   craftingRecipes:
   - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}

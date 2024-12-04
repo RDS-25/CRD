@@ -5,16 +5,17 @@ public class SkillCritical : SkillData
 {
     public float criticalMultiplier;
     public int criticalper;
+    
 
-    public override float ApplySkill(UnitData data)
+    public override float ApplySkill(Unit data)
     {
       int chance = UnityEngine.Random.Range(1, 101);
       if (chance <= criticalper)
       {
-          return criticalMultiplier * data.attackDamage;
+          return criticalMultiplier * data.attackdamage;
       }
 
-      return data.attackDamage;
+      return data.attackdamage;
     }
 }
 

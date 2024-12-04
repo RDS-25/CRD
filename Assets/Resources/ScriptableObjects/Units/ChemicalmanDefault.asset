@@ -20,7 +20,7 @@ MonoBehaviour:
   moveSpeed: 0
   attackRange: 0
   attackDamage: 0
+  attackSpeed: 0
   skills:
-  - {fileID: 11400000, guid: da64b553864e6a94cae8b4cc150195b2, type: 2}
-  craftingRecipes:
-  - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}
+  - {fileID: 11400000, guid: d86fb224ac88bab418c8d00ae0f229d2, type: 2}
+  craftingRecipes: []

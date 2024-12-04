@@ -4,19 +4,25 @@ using UnityEngine.AI;
 
 public class Unit : MonoBehaviour, ISelectable
 {
+   
     public List<Transform> potentialTargets; // 잠재적 타겟 목록
+    public Transform target;
     public UnitData unitData;
     [SerializeField] GameObject selectIndicator;
+    public GameObject Partcle;
 
     bool isSelected = false;
     float attackCooldown = 0f;
-
+    //어택땅
+    public bool forcedattack = false;
     ICommand currentCommand;
     private NavMeshAgent agent;
     public float attackRange;
     public float attackSpeed;
     public float hp;
     public float mp;
+    public float Maxmp;
+    public float attackdamage;
 
     void Start()
     {
@@ -24,19 +30,25 @@ public class Unit : MonoBehaviour, ISelectable
         agent.speed = unitData.moveSpeed;
         attackRange = unitData.attackRange;
         hp = unitData.health;
-        mp = unitData.magicPoint;
+        mp = 0;
+        Maxmp = unitData.magicPoint;
         attackSpeed = unitData.attackSpeed;
+        attackdamage = unitData.attackDamage;
     }
 
     void Update()
     {
+        if (target == null)
+        {
+            Partcle.SetActive(false);
+        }
         attackCooldown -= Time.deltaTime; // 공격 쿨다운을 감소시킴
-
+    
         FindEnemiesInRange();
 
-        Transform target = FindClosestTargetInRange();
+        target = FindClosestTargetInRange();
 
-        if (target != null)
+        if (target != null && !forcedattack)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -45,6 +57,9 @@ public class Unit : MonoBehaviour, ISelectable
                 if (attackCooldown <= 0f)
                 {
                     Attack(target);
+                    StateMachine machine = GetComponent<StateController>().stateMachine;
+                    machine.TransitionTo(machine.attackState);
+                    mp += 1;
                     attackCooldown = 1f / attackSpeed; // 공격 속도에 따라 쿨다운 설정
                 }
             }
@@ -100,14 +115,19 @@ public class Unit : MonoBehaviour, ISelectable
         }
     }
 
-    void Attack(Transform target)
+    public void Attack(Transform target)
     {
         for (int i = 0; i < unitData.skills.Length; i++)
         {
-            target.GetComponent<PropertyDisplay>().currenthp -=  UseSkill(i);
+            
+            target.GetComponent<PropertyDisplay>().currenthp -=UseSkill(i); 
+            if (Partcle !=null)
+            {
+                Partcle.SetActive(true);
+                Partcle.transform.position = target.position;
+            }
             
         }
-        
         transform.LookAt(target);
     }
     //스킬 사용
@@ -116,13 +136,12 @@ public class Unit : MonoBehaviour, ISelectable
         if (skillindex < 0 || skillindex >= unitData.skills.Length)
             return 0;
         SkillData skillData = unitData.skills[skillindex];
-        Debug.Log(skillData.skillName+":"+skillData.ApplySkill(unitData));
-        return skillData.ApplySkill(unitData);
-        
+        return skillData.ApplySkill(this);
     }
 
     public bool IsSelected()
     {
+        Debug.Log(transform.name);
         return isSelected;
     }
 

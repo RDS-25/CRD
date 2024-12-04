@@ -29,6 +29,7 @@ public class StateController : MonoBehaviour
 
     void Start() 
     {
+       
         stateMachine.Initialize(stateMachine.idleState);
     }
 

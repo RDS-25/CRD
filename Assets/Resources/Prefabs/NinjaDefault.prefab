@@ -3599,11 +3599,12 @@ GameObject:
   - component: {fileID: 7239382721058430906}
   - component: {fileID: 8857687270543133648}
   - component: {fileID: 2535657197830101274}
-  - component: {fileID: 7547705148612359323}
   - component: {fileID: 8992448073904823019}
+  - component: {fileID: -5462523291577247725}
+  - component: {fileID: 5693814998062201466}
   m_Layer: 0
   m_Name: NinjaDefault
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3676,7 +3677,7 @@ Animator:
   m_GameObject: {fileID: 4815136255885962126}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
-  m_Controller: {fileID: 9100000, guid: 929e8f9e7ac31b746a6d22e441959d8a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9ec720713ea8d5f40880e42c1e8f6a5a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3700,11 +3701,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46cad4520aeae74ebc74453fca40ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potentialTargets: []
+  target: {fileID: 0}
   unitData: {fileID: 11400000, guid: 2310dc7c6c6694a43aca816f2bbfadd3, type: 2}
   selectIndicator: {fileID: 3244662325858349947}
+  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
+  forcedattack: 0
   attackRange: 0
+  attackSpeed: 0
   hp: 0
   mp: 0
+  attackdamage: 0
 --- !u!114 &3065027194812263469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,8 +3769,43 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!136 &7547705148612359323
+  m_ObstacleAvoidanceType: 0
+--- !u!114 &8992448073904823019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815136255885962126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ece910964acfc24cb0460e067dffdf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &-5462523291577247725
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815136255885962126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &5693814998062201466
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3786,18 +3828,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8992448073904823019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4815136255885962126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ece910964acfc24cb0460e067dffdf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4847070847193361453
 GameObject:
   m_ObjectHideFlags: 0
