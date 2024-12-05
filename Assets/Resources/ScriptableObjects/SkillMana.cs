@@ -6,6 +6,7 @@ public class SkillMana : SkillData
     public float range; // 범위 공격의 범위 지정
     [SerializeField] private LayerMask enemyLayer;
     public GameObject particlePrefab;
+    public AudioClip skillSound;
 
     public override float ApplySkill(Unit data)
     {
@@ -13,6 +14,7 @@ public class SkillMana : SkillData
         // data.mp == 현재 마나통
         if (data.unitData.magicPoint <= data.mp)
         {
+            data.audioSource.PlayOneShot(skillSound);
             if (data.target==null)
             {
                 Debug.Log("지정할 대상이 없음");

@@ -6656,7 +6656,6 @@ GameObject:
   - component: {fileID: 3518155228236321328}
   - component: {fileID: 4414171460395427844}
   - component: {fileID: -4764140698310040684}
-  - component: {fileID: -3941800919845290275}
   m_Layer: 0
   m_Name: VeteranDefault
   m_TagString: Player
@@ -6760,12 +6759,12 @@ MonoBehaviour:
   target: {fileID: 0}
   unitData: {fileID: 11400000, guid: 4f2bdee91b43c9d46af7c5e836091fda, type: 2}
   selectIndicator: {fileID: 1545436711234510534}
-  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
   forcedattack: 0
   attackRange: 0
   attackSpeed: 0
   hp: 0
   mp: 0
+  Maxmp: 0
   attackdamage: 0
 --- !u!114 &7358071850652259754
 MonoBehaviour:
@@ -6860,29 +6859,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &-3941800919845290275
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8958160448939371788}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &9154556069358559111
 GameObject:
   m_ObjectHideFlags: 0

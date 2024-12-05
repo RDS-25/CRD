@@ -15,6 +15,6 @@ MonoBehaviour:
   reqItems:
   - item: {fileID: 11400000, guid: c12a20ed32dac1448beaf314749c7421, type: 2}
   - item: {fileID: 11400000, guid: c12a20ed32dac1448beaf314749c7421, type: 2}
-  resultItem: {fileID: 9200780984197615328, guid: 3676e9b3ba6596f479eaace0d99fbd59, type: 3}
-  createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
+  resultItem: {fileID: 1895128451538434624, guid: 1773440a921ea6c478bbaa3094cc3abf, type: 3}
+  createSprite: {fileID: 21300000, guid: f703272f4f22896478967ceb49572935, type: 3}
   description: BasicMaleDefault + BasicMaleDefault

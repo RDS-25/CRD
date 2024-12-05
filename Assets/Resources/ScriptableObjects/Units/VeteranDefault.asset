@@ -23,5 +23,5 @@ MonoBehaviour:
   attackSpeed: 1
   skills:
   - {fileID: 11400000, guid: c50c4b36786a2964d8e50b3ef81963a9, type: 2}
-  craftingRecipes:
-  - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}
+  - {fileID: 11400000, guid: 6f081678af15e2d4591e2d04ba2e1cfe, type: 2}
+  craftingRecipes: []

@@ -3601,7 +3601,6 @@ GameObject:
   - component: {fileID: 2535657197830101274}
   - component: {fileID: 8992448073904823019}
   - component: {fileID: -5462523291577247725}
-  - component: {fileID: 5693814998062201466}
   m_Layer: 0
   m_Name: NinjaDefault
   m_TagString: Player
@@ -3705,12 +3704,12 @@ MonoBehaviour:
   target: {fileID: 0}
   unitData: {fileID: 11400000, guid: 2310dc7c6c6694a43aca816f2bbfadd3, type: 2}
   selectIndicator: {fileID: 3244662325858349947}
-  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
   forcedattack: 0
   attackRange: 0
   attackSpeed: 0
   hp: 0
   mp: 0
+  Maxmp: 0
   attackdamage: 0
 --- !u!114 &3065027194812263469
 MonoBehaviour:
@@ -3805,29 +3804,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &5693814998062201466
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4815136255885962126}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4847070847193361453
 GameObject:
   m_ObjectHideFlags: 0

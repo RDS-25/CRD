@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,20 +14,29 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private Transform swpanPos;
     [Header("Initialized spawned enemies")]
     [SerializeField] private Transform swpanGroups;
+    [Header("Initialized spawned Unit")]
     [SerializeField] private Transform UnitGroup;
+    [SerializeField] private List<GameObject> EnemyCount = new List<GameObject>();
+    
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            InitializeDictionary();
-            InitializePool();
+            Time.timeScale = 1;
+       
         }
         else
         {
             Destroy(gameObject); // 중복제거
         }
+    }
+
+    private void Start()
+    {
+        InitializePool();
+        InitializeDictionary();
     }
 
     private void InitializeDictionary()
@@ -81,6 +91,7 @@ public class ObjectPool : MonoBehaviour
             {
                 obj.transform.position = swpanPos.position;
                 obj.SetActive(true);
+                EnemyCount.Add(obj);
                 return obj;
             }
         }
@@ -124,11 +135,30 @@ public class ObjectPool : MonoBehaviour
             return; 
         }
         var enemy = obj.GetComponent<PropertyDisplay>();
-        enemy.currenthp = enemy.maxhp;
-        enemy.isDead = false;
-        enemy.GetComponent<NavMeshAgent>().enabled = true;
-        enemy.GetComponent<NavMeshAgent>().ResetPath();
-        enemy.GetComponent<Follow>().enabled = true;
+        if (obj.CompareTag("Enemy"))
+        {
+            EnemyCount.Remove(obj);
+            enemy.currenthp = enemy.maxhp;
+            enemy.isDead = false;
+            enemy.GetComponent<Follow>().currentIndex = 0;
+            enemy.GetComponent<NavMeshAgent>().enabled = true;
+            enemy.GetComponent<Follow>().enabled = true;
+        }
         obj.SetActive(false);
     }
+
+    public int showEnemyCount()
+    {
+        return EnemyCount.Count;
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+    }
+    public void GameClear()
+    {
+        Time.timeScale = 0;
+    }
+    
 }

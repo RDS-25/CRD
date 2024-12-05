@@ -24,4 +24,4 @@ MonoBehaviour:
   skills:
   - {fileID: 11400000, guid: 8120493acd14ccd488df70813e8e5b8a, type: 2}
   craftingRecipes:
-  - {fileID: 11400000, guid: cf30360bc4a898a46b6b0da0fcf67965, type: 2}
+  - {fileID: 11400000, guid: 6cf1fad0582668f4386cf3a48f286ae9, type: 2}

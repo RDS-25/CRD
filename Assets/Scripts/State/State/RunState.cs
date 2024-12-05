@@ -11,6 +11,10 @@ public class RunState : IState
 
     public void Enter()
     {
+        if ( player.GetComponent<Animator>()==null)
+        {
+            return;
+        }
         player.GetComponent<Animator>().SetTrigger("Run");
 
     }

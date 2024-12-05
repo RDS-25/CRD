@@ -191,7 +191,6 @@ GameObject:
   - component: {fileID: 3978653343560437811}
   - component: {fileID: 8336061399948381635}
   - component: {fileID: 5106456136906215597}
-  - component: {fileID: 7841570604281938468}
   - component: {fileID: 1467334809971930245}
   m_Layer: 0
   m_Name: Wisp
@@ -307,12 +306,12 @@ MonoBehaviour:
   target: {fileID: 0}
   unitData: {fileID: 11400000, guid: fcf4f6c7cc2da3a4b843cceb5a468417, type: 2}
   selectIndicator: {fileID: 102774874955374420}
-  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
   forcedattack: 0
   attackRange: 0
   attackSpeed: 0
   hp: 0
   mp: 0
+  Maxmp: 0
   attackdamage: 0
 --- !u!114 &582117242911355322
 MonoBehaviour:
@@ -372,28 +371,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!95 &7841570604281938468
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6026101950126908067}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1467334809971930245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,3 +396,4 @@ MonoBehaviour:
   - {fileID: 4815136255885962126, guid: 78a1bb6111a1d89469d46baf6f39f10c, type: 3}
   - {fileID: 4980342622585420747, guid: b9c749d5b0249f944997417e0fe3771b, type: 3}
   - {fileID: 6225335044734245824, guid: 08bc9ca4288dfff4a8f1573283d0c8bf, type: 3}
+  - {fileID: 1231544032325024196, guid: 815a745b78efa81409be48e57b83dd91, type: 3}

@@ -25,6 +25,7 @@ public class PropertyDisplay : MonoBehaviour ,ISelectable
         {
             isDead = true;
             transform.GetComponent<Follow>().enabled = false;
+            transform.GetComponent<NavMeshAgent>().ResetPath();
             transform.GetComponent<NavMeshAgent>().enabled = false;
             animator.SetTrigger("Dead");
             Invoke("retunobj",0.5f);

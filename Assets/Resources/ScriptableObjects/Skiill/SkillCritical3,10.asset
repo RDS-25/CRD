@@ -15,6 +15,6 @@ MonoBehaviour:
   skillName: critical3
   skillIcon: {fileID: 21300000, guid: 394d85dabc9e64949bba77a7100a7467, type: 3}
   skillDescription: "\uC77C\uC815 \uD655\uB960\uB85C \uB354 \uAC15\uD55C \uACF5\uACA9\uC744
-    \uBA39\uC778\uB2E4."
+    \uBA39\uC778\uB2E4.\\n\uD655\uB960 :3% \\n\uD06C\uB9AC\uD2F0\uCEEC :3\uBC30"
   criticalMultiplier: 3
   criticalper: 10

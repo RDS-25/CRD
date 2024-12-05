@@ -16,5 +16,5 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 1e918e1381312d7438813ca54bef75a1, type: 2}
   - item: {fileID: 11400000, guid: 4f18a7ff550791048a3474b86a5c8bdd, type: 2}
   resultItem: {fileID: 8539493544235079675, guid: 3a9356e45ec61004cb651d4f3bf61af4, type: 3}
-  createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
+  createSprite: {fileID: 21300000, guid: f703272f4f22896478967ceb49572935, type: 3}
   description: BearDefault + ChickenDefault

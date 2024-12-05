@@ -16,5 +16,5 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: eadbbb3bb9827874bbb23367105742f6, type: 2}
   - item: {fileID: 11400000, guid: 864dd5d903affb54fbeec33e59842d0c, type: 2}
   resultItem: {fileID: 2604261240303751259, guid: e4de5d098a5746043a2126b4bed9a346, type: 3}
-  createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
+  createSprite: {fileID: 21300000, guid: f703272f4f22896478967ceb49572935, type: 3}
   description: HoodieDefault + JesterDefault

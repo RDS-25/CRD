@@ -12,6 +12,10 @@ public class IdleState : IState
 
     public void Enter()
     {
+        if (player.GetComponent<Animator>()==null)
+        {
+            return;
+        }
         player.GetComponent<Animator>().SetTrigger("Idle");
     }
 

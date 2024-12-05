@@ -1122,7 +1122,6 @@ GameObject:
   - component: {fileID: 1990278306641592469}
   - component: {fileID: 8703491891345615143}
   - component: {fileID: -2344545842449259876}
-  - component: {fileID: -7979232903416978758}
   m_Layer: 0
   m_Name: SamuraiDefault
   m_TagString: Player
@@ -1226,12 +1225,12 @@ MonoBehaviour:
   target: {fileID: 0}
   unitData: {fileID: 11400000, guid: 8c9143865e32b534fb3a4b69684eb639, type: 2}
   selectIndicator: {fileID: 3264312627244003297}
-  Partcle: {fileID: 2277241685270660741, guid: 7627fb027e793aa409dd64d462b699b0, type: 3}
   forcedattack: 0
   attackRange: 0
   attackSpeed: 0
   hp: 0
   mp: 0
+  Maxmp: 0
   attackdamage: 0
 --- !u!114 &4405260408995795424
 MonoBehaviour:
@@ -1326,29 +1325,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &-7979232903416978758
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845179379279311558}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1852870253214430376
 GameObject:
   m_ObjectHideFlags: 0

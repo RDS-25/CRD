@@ -16,5 +16,5 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 93d99f5cc55d9f3478288f3538ad3cc6, type: 2}
   - item: {fileID: 11400000, guid: 4f224d17789f07642814d65e78b1c1dc, type: 2}
   resultItem: {fileID: 8958160448939371788, guid: b51d2ac771a4f06469414d4df61a6af1, type: 3}
-  createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
+  createSprite: {fileID: 21300000, guid: f703272f4f22896478967ceb49572935, type: 3}
   description: AlienDefault + BasicFemaleDefault

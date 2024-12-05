@@ -9,8 +9,6 @@ public class Unit : MonoBehaviour, ISelectable
     public Transform target;
     public UnitData unitData;
     [SerializeField] GameObject selectIndicator;
-    public GameObject Partcle;
-
     bool isSelected = false;
     float attackCooldown = 0f;
     //¾îÅÃ¶¥
@@ -23,10 +21,12 @@ public class Unit : MonoBehaviour, ISelectable
     public float mp;
     public float Maxmp;
     public float attackdamage;
+    public AudioSource audioSource;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
         agent.speed = unitData.moveSpeed;
         attackRange = unitData.attackRange;
         hp = unitData.health;
@@ -38,10 +38,7 @@ public class Unit : MonoBehaviour, ISelectable
 
     void Update()
     {
-        if (target == null)
-        {
-            Partcle.SetActive(false);
-        }
+     
         attackCooldown -= Time.deltaTime; // °ø°Ý Äð´Ù¿îÀ» °¨¼Ò½ÃÅ´
     
         FindEnemiesInRange();
@@ -121,11 +118,6 @@ public class Unit : MonoBehaviour, ISelectable
         {
             
             target.GetComponent<PropertyDisplay>().currenthp -=UseSkill(i); 
-            if (Partcle !=null)
-            {
-                Partcle.SetActive(true);
-                Partcle.transform.position = target.position;
-            }
             
         }
         transform.LookAt(target);
@@ -136,12 +128,12 @@ public class Unit : MonoBehaviour, ISelectable
         if (skillindex < 0 || skillindex >= unitData.skills.Length)
             return 0;
         SkillData skillData = unitData.skills[skillindex];
+        
         return skillData.ApplySkill(this);
     }
 
     public bool IsSelected()
     {
-        Debug.Log(transform.name);
         return isSelected;
     }
 
@@ -154,7 +146,11 @@ public class Unit : MonoBehaviour, ISelectable
     public void Deselect()
     {
         isSelected = false;
-        selectIndicator.SetActive(false);
+        
+        if (selectIndicator != null)
+        {
+            selectIndicator.SetActive(false);
+        }
     }
 
     public void ExecuteCommand(ICommand command)

@@ -16,5 +16,5 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: e2fe6f1885860ff4081ef729e90eabc6, type: 2}
   - item: {fileID: 11400000, guid: 2310dc7c6c6694a43aca816f2bbfadd3, type: 2}
   resultItem: {fileID: 1845179379279311558, guid: d4a40b19f635a2140ba5978581eed0ed, type: 3}
-  createSprite: {fileID: 21300000, guid: 9d5911e091e59864ea8801a0ba72f698, type: 3}
+  createSprite: {fileID: 21300000, guid: f703272f4f22896478967ceb49572935, type: 3}
   description: HeroDefault + NinjaDefault

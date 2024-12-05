@@ -1,4 +1,5 @@
 
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,19 +8,23 @@ public class Follow : MonoBehaviour
 {
     public Transform[] wayPoints;
     private NavMeshAgent agent;
-    private int currentIndex = 0;
+    public int currentIndex = 0;
     
 
     private void Start()
     {
         FindWayPoint();
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void OnEnable()
+    {
         if (wayPoints.Length > 0)
         {
             agent.SetDestination(wayPoints[currentIndex].position);
         }
-        
     }
+
 
     private void Update()
     {

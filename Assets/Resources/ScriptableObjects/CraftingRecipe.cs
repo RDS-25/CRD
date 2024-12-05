@@ -59,12 +59,12 @@ public class CraftingRecipe : ScriptableObject
     {
         // 씬에서 특정 ID를 가진 아이템의 수를 세는 로직
         Unit[] units = GameObject.FindObjectsOfType<Unit>();
-        return units.Count(obj => obj.GetComponent<Unit>()?.unitData.ID == item.ID);
+        return units.Count(obj => obj.GetComponent<Unit>()?.unitData.ID == item.ID && obj.tag != "NotSearch");
     }
 
     private void RemoveItemsFromScene(UnitData item, int count)
     {
-        // 씬에서 특정 ID를 가진 아이템을 제거하는 로직
+        // 씬에서 특정 ID를 가진 아이템을 제거하되, 특정 태그를 가진 유닛은 제외
         Unit[] units = GameObject.FindObjectsOfType<Unit>();
         int removed = 0;
 
@@ -72,7 +72,7 @@ public class CraftingRecipe : ScriptableObject
         {
             if (removed >= count) break;
 
-            if (obj.GetComponent<Unit>()?.unitData.ID == item.ID)
+            if (obj.GetComponent<Unit>()?.unitData.ID == item.ID && obj.tag != "NotSearch")
             {
                 ObjectPool.Instance.ReturnObject(obj.gameObject);
                 removed++;
