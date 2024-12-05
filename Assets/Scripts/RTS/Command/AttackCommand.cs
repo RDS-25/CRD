@@ -80,7 +80,7 @@ public class AttackCommand : MonoBehaviour, ICommand
     void PerformAttack(Unit unit, ISelectable target)
     {
         unit.transform.LookAt((target as MonoBehaviour).transform.position);
-        Debug.Log(unit.name + "이" + (target as MonoBehaviour).name + " 공격중");
+        // Debug.Log(unit.name + "이" + (target as MonoBehaviour).name + " 공격중");
         
     }
 }

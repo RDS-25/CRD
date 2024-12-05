@@ -44,7 +44,7 @@ public class MinimapController : MonoBehaviour
  
         GL.PushMatrix();
         {
-            Debug.Log($"minX: {minX}, minY: {minY}, maxX: {maxX}, maxY: {maxY}");
+            // Debug.Log($"minX: {minX}, minY: {minY}, maxX: {maxX}, maxY: {maxY}");
             cameraBoxMaterial.SetPass(0);
             GL.LoadOrtho();
  

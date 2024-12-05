@@ -18,10 +18,14 @@ public class CommandUI : MonoBehaviour
 
     public TextMeshProUGUI skillDescriptions;
     public UnitData data;
-
+    public List<ISelectable> selectables = new List<ISelectable>();
+    
+    
+  
     private void Update()
     {
-     
+       
+      
     }
 
     public void DisplayCommands(List<ISelectable> selectables)
@@ -78,34 +82,66 @@ public class CommandUI : MonoBehaviour
                 skillIcons[data.skills.Length + i].sprite = data.craftingRecipes[i].createSprite;
             }
         }
+        else
+        {
+            
+            for (int i = 0; i < skillIcons.Length; i++)
+            {
+                if (i < selectables.Count && selectables[i] is Unit a)
+                {
+                    skillIcons[i].sprite = a.unitData.attackicon;
+                }else
+                {
+                    // 더 이상 필요하지 않으므로 아이콘을 숨기거나 비활성화
+                    skillIcons[i].sprite = null;
+                }
+            }
+        }
     }
 
 
 
     public void OnPointerEnter(BaseEventData eventData)
     {
+        selectables = UnitSelector.selectedUnits;
+        
         PointerEventData pointerData = eventData as PointerEventData;
+        
         if (pointerData == null) return;
-
+       
         for (int i = 0; i < skillIcons.Length; i++)
         {
+         
+            
             if (pointerData.pointerCurrentRaycast.gameObject == skillIcons[i].gameObject)
             {
-                if (skillIcons[i].sprite != null)
+                skillDescriptions.gameObject.SetActive(true);
+                skillDescriptions.gameObject.transform.position = pointerData.position;
+                if (selectables.Count > 1 && selectables[i] is Unit a)
                 {
-                    skillDescriptions.gameObject.SetActive(true);
-                    skillDescriptions.gameObject.transform.position = pointerData.position;
-                    if (i < data.skills.Length)
-                    {
-                        skillDescriptions.text = data.skills[i].skillDescription;
-                    }
-                    else
-                    {
-                        skillDescriptions.text = data.craftingRecipes[i - data.skills.Length].description;
-                        // 기존 UI 요소에 Button 컴포넌트 추가
-                        AddButtonComponentToIcon(skillIcons[i], i - data.skills.Length);
-                    }
+                    skillDescriptions.text = a.unitData.unitName;
+                }
 
+                if (selectables.Count ==1)
+                {
+                    if (skillIcons[i].sprite != null)
+                    {
+                        if (i < data.skills.Length)
+                        {
+                            skillDescriptions.text = data.skills[i].skillDescription;
+                        }
+                        else
+                        {
+                            if (data.craftingRecipes ==null)
+                            {
+                                // Debug.Log("조합할꺼없음");
+                                return;
+                            }
+                            skillDescriptions.text = data.craftingRecipes[i - data.skills.Length].description;
+                            // 기존 UI 요소에 Button 컴포넌트 추가
+                            AddButtonComponentToIcon(skillIcons[i], i - data.skills.Length);
+                        }
+                    }
                 }
             }
         }

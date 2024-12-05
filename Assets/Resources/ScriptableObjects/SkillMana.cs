@@ -17,7 +17,7 @@ public class SkillMana : SkillData
             data.audioSource.PlayOneShot(skillSound);
             if (data.target==null)
             {
-                Debug.Log("지정할 대상이 없음");
+                // Debug.Log("지정할 대상이 없음");
                 return 0;
             }
             data.mp -= data.unitData.magicPoint;

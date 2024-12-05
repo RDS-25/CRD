@@ -64,7 +64,7 @@ public class Building : MonoBehaviour, ISelectable
     {
         if (activeProductionCoroutine != null)
         {
-            Debug.Log("already in progress");
+            // Debug.Log("already in progress");
             return;
         }
 

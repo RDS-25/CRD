@@ -17,6 +17,7 @@ public class ObjectPool : MonoBehaviour
     [Header("Initialized spawned Unit")]
     [SerializeField] private Transform UnitGroup;
     [SerializeField] private List<GameObject> EnemyCount = new List<GameObject>();
+    [SerializeField] private List<Unit> UnitCount = new List<Unit>(8);
     
 
     private void Awake()
@@ -113,6 +114,7 @@ public class ObjectPool : MonoBehaviour
                 // 오브젝트를 활성화하고 위치를 설정한 뒤 반환
                 
                 obj.SetActive(true);
+                UnitCount.Add(obj.GetComponent<Unit>());
                 return obj;
             }
         }
@@ -121,6 +123,7 @@ public class ObjectPool : MonoBehaviour
         GameObject newObj = Instantiate(prefab);
         newObj.transform.position = swpanPos.position;
         poolUnit.Add(newObj);
+        UnitCount.Add(newObj.GetComponent<Unit>());
         newObj.transform.SetParent(UnitGroup);
         return newObj;
     }
@@ -132,9 +135,10 @@ public class ObjectPool : MonoBehaviour
         if (obj.name.Contains("Wisp"))
         {
             obj.SetActive(false);
+            UnitCount.Remove(obj.transform.GetComponent<Unit>());
             return; 
         }
-        var enemy = obj.GetComponent<PropertyDisplay>();
+        var enemy = obj.GetComponent<PropertyDisplay>();    
         if (obj.CompareTag("Enemy"))
         {
             EnemyCount.Remove(obj);
@@ -144,6 +148,7 @@ public class ObjectPool : MonoBehaviour
             enemy.GetComponent<NavMeshAgent>().enabled = true;
             enemy.GetComponent<Follow>().enabled = true;
         }
+        UnitCount.Remove(obj.transform.GetComponent<Unit>());
         obj.SetActive(false);
     }
 
@@ -160,5 +165,9 @@ public class ObjectPool : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-    
+    public List<Unit> ShowUnitCount()
+    {
+        return UnitCount;
+    }
+
 }

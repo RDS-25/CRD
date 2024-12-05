@@ -51,7 +51,7 @@ public class Follow : MonoBehaviour
         }
         else
         {
-            Debug.LogError("WayPoint object not found!");
+            // Debug.LogError("WayPoint object not found!");
         }
     }
 }

@@ -27,8 +27,8 @@ public class CraftingRecipe : ScriptableObject
 
             if (sceneCount < requiredCount)
             {
-                Debug.Log(
-                    $"Required item {reqItem.item.name} is missing in the scene. Needed: {requiredCount}, Found: {sceneCount}");
+                // Debug.Log(
+                //     $"Required item {reqItem.item.name} is missing in the scene. Needed: {requiredCount}, Found: {sceneCount}");
                 canCraft = false;
                 break;
             }
@@ -37,7 +37,7 @@ public class CraftingRecipe : ScriptableObject
         // 모든 필요한 아이템이 충분히 있으면 조합
         if (canCraft)
         {
-            Debug.Log($"Successfully crafted {resultItem.name}!");
+            // Debug.Log($"Successfully crafted {resultItem.name}!");
             // 결과물을 처리하는 로직을 여기에 구현
             // 필요한 아이템 제거
             foreach (var reqItem in reqItems)
@@ -51,7 +51,7 @@ public class CraftingRecipe : ScriptableObject
         }
         else
         {
-            Debug.Log("Crafting failed. Required items are missing in the scene.");
+            // Debug.Log("Crafting failed. Required items are missing in the scene.");
         }
     }
 

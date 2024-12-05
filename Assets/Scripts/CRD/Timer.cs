@@ -23,11 +23,16 @@ public class Timer : MonoBehaviour
     public GameObject wisp;
 
 
-    // Update is called once per frame
     private void Start()
     {
         cooldownTimer = cooldownTime;
         roundCountText.text = roundCount.ToString()+"Round";
+        //처음 위습 소환
+        for (int i = 0; i < 5; i++)
+        {
+            var a =ObjectPool.Instance.GetObjectUnit(wisp);
+            a.transform.position = wispPos.position;
+        }
     }
 
 

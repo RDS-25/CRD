@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class UnitSelector : MonoBehaviour
 {
-    
-    public static List<ISelectable> selectedUnits = new List<ISelectable>();
+    //8개까지만 
+    public static List<ISelectable> selectedUnits = new List<ISelectable>(8);
 
     public void Select(ISelectable selectable)
     {
-        selectedUnits.Add(selectable);
-        selectable.Select();
+        if (selectedUnits.Count < 8)
+        {
+            selectedUnits.Add(selectable);
+            selectable.Select();
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void Deselect(ISelectable selectable)

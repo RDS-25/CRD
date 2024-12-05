@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65d7269bcf38b24abbb291c1d843635, type: 3}
   m_Name: SoldierDefault
   m_EditorClassIdentifier: 
-  ID: 
-  unitName: 
-  attackicon: {fileID: 0}
-  health: 0
-  magicPoint: 0
-  moveSpeed: 0
-  attackRange: 0
-  attackDamage: 0
-  attackSpeed: 0
+  ID: 17
+  unitName: SoldierDefault
+  attackicon: {fileID: 21300000, guid: e36cecb3027d3e247a58330439dd865a, type: 3}
+  health: 9
+  magicPoint: 9
+  moveSpeed: 5
+  attackRange: 7
+  attackDamage: 30
+  attackSpeed: 3
   skills:
   - {fileID: 11400000, guid: c50c4b36786a2964d8e50b3ef81963a9, type: 2}
+  - {fileID: 11400000, guid: 6f081678af15e2d4591e2d04ba2e1cfe, type: 2}
   craftingRecipes: []

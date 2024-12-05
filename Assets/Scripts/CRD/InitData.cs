@@ -61,13 +61,13 @@ public class InitData : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Failed to load Unit Data.");
+                // Debug.LogError("Failed to load Unit Data.");
             }
         }
         else
         {
             
-            Debug.LogError("Failed to load Unit Data.");
+            // Debug.LogError("Failed to load Unit Data.");
         }
     }
 
